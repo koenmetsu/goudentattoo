@@ -194,19 +194,7 @@
     <div class="bubbles" id="bubbles"></div>
     
     <div class="container">
-        <div class="serious-content" id="serious">
-            <div class="warning-icon">&#9888;</div>
-            <h1>KRITIEKE SYSTEEMFOUT GEDETECTEERD</h1>
-            <p class="subtitle">Uw browser ondergaat een belangrijke beveiligingsscan...</p>
-            
-            <div class="loading-bar">
-                <div class="loading-progress" id="progress"></div>
-            </div>
-            
-            <p class="status-text" id="status">Initialiseren...</p>
-        </div>
-
-        <div class="prank-content" id="prank">
+        <div class="prank-content" id="prank" style="display: block;">
             <div class="fish">&#128031;</div>
             <h1 class="prank-title">HAHAHA DAT KAN NIET HE!</h1>
             <p class="haha">1 APRIL!</p>
@@ -216,37 +204,9 @@
     </div>
 
     <script>
-        const statusMessages = [
-            "Scannen van systeembestanden...",
-            "Controleren van netwerkverbinding...",
-            "Analyseren van browsergeschiedenis...",
-            "Detecteren van verdachte activiteit...",
-            "Voorbereiden van noodprotocol...",
-            "Bijna klaar..."
-        ];
-
-        let messageIndex = 0;
-        const statusEl = document.getElementById('status');
-
-        const statusInterval = setInterval(() => {
-            if (messageIndex < statusMessages.length) {
-                statusEl.textContent = statusMessages[messageIndex];
-                messageIndex++;
-            }
-        }, 500);
-
-        // After loading bar completes
-        setTimeout(() => {
-            clearInterval(statusInterval);
-            document.getElementById('serious').style.display = 'none';
-            document.getElementById('prank').style.display = 'block';
-            
-            // Create confetti
-            createConfetti();
-            
-            // Create bubbles
-            createBubbles();
-        }, 3500);
+        // Start confetti and bubbles immediately
+        createConfetti();
+        createBubbles();
 
         function createConfetti() {
             const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#1dd1a1', '#5f27cd'];
